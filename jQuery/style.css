@@ -1,0 +1,20 @@
+body {
+    padding: 10px;
+    font-size: 18px;
+    color: #999;
+}
+
+h1 {
+    color: #999;
+    font-size: 28px;
+}
+
+p {
+    margin: 5px;
+    border: 2px solid lightgray;
+}
+
+div {
+    margin: 5px;
+    border: 1px solid red;
+}
