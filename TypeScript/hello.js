@@ -1,15 +1,15 @@
 function convert(item) {
     switch (typeof item) {
         case 'number':
-            return Math.floor(item).toString();
+            return Math.floor(item);
         case 'string':
             return item.toUpperCase();
         case 'boolean':
             return item ? 'yes' : 'no';
+        default:
+            return 'any';
     }
 }
-function doClick() {
-    var val = 'japan';
-    var msg = document.querySelector('#msg');
-    msg.innerHTML = convert(val);
-}
+var a = convert('hello');
+var b = convert(1.32);
+var c = convert(false);

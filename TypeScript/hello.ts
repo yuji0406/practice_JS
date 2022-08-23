@@ -1,20 +1,16 @@
-function convert(item: number): string;
-function convert(item: string): string;
-function convert(item: boolean): string;
-
-function convert(item: any): string {
+function convert<T> (item: T): string {
     switch (typeof item) {
         case 'number':
-            return Math.floor(item).toString();
+            return Math.floor(item);
         case 'string':
             return item.toUpperCase();
         case 'boolean':
             return item ? 'yes' : 'no';
+        default:
+            return 'any';
     }
 }
 
-function doClick(): void {
-    let val: any = 'japan';
-    let msg: Element = document.querySelector('#msg');
-    msg.innerHTML = convert(val);
-}
+let a: string = convert<string>('hello');
+let b: number = convert<number>(1.32);
+let c: boolean = convert<boolean>(false);
