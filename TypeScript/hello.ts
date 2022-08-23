@@ -1,15 +1,20 @@
-function calc(price: number, tax?: number): number {
-    let tx = 0;
-    if (tax) {
-        tx = tax;
-    } else {
-        tx = 0.08;
+function convert(item: number): string;
+function convert(item: string): string;
+function convert(item: boolean): string;
+
+function convert(item: any): string {
+    switch (typeof item) {
+        case 'number':
+            return Math.floor(item).toString();
+        case 'string':
+            return item.toUpperCase();
+        case 'boolean':
+            return item ? 'yes' : 'no';
     }
-    return Math.floor(price * (1.0 + tx));
 }
 
 function doClick(): void {
-    let text1: HTMLInputElement = document.querySelector('#text1');
+    let val: any = 'japan';
     let msg: Element = document.querySelector('#msg');
-    msg.innerHTML = calc(text1.value) + '円';
+    msg.innerHTML = convert(val);
 }
