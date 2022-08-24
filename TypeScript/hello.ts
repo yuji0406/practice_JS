@@ -1,20 +1,24 @@
-function print(n: number, f:(number) => number): string {
-    var re: number = f(n);
-    return '<p>結果：' + re + '</p>';
+class Person {
+    name: string;
+    age: number;
+
+    constructor(n :string, y: number) {
+        this.name = n;
+        this.age = y;
+    }
+
+    print(): string {
+        let msg: string = '<p>My name is ' + this.name  + '. I am ' + this.age + 'years old. </p>'
+        return msg;
+    }
 }
 
 function doClick(): void {
-    let val: number = document.querySelector('#text1').value * 1;
+    let val: string = document.querySelector('#text1').value;
+    let arr: string[] = val.split(',');
+
+    let obj: Person = new Person(arr[0], parseInt(arr[1]));
+
     let msg: Element = document.querySelector('#msg');
-
-    let a:(number) => number = (n: number) => n * n;
-    let b:(number) => number = (n: number) => {
-        let total: number = 0;
-        for (let i:number = 1; i <= n; i++) {
-            total += i;
-        }
-        return total;
-    };
-
-    msg.innerHTML = print(val, b);
+    msg.innerHTML = obj.print();
 }

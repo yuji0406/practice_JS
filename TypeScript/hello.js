@@ -1,17 +1,18 @@
-function print(n, f) {
-    var re = f(n);
-    return '<p>結果：' + re + '</p>';
-}
-function doClick() {
-    var val = document.querySelector('#text1').value * 1;
-    var msg = document.querySelector('#msg');
-    var a = function (n) { return n * n; };
-    var b = function (n) {
-        var total = 0;
-        for (var i = 1; i <= n; i++) {
-            total += i;
-        }
-        return total;
+var Person = /** @class */ (function () {
+    function Person(n, y) {
+        this.name = n;
+        this.age = y;
+    }
+    Person.prototype.print = function () {
+        var msg = '<p>My name is ' + this.name + '. I am ' + this.age + 'years old. </p>';
+        return msg;
     };
-    msg.innerHTML = print(val, b);
+    return Person;
+}());
+function doClick() {
+    var val = document.querySelector('#text1').value;
+    var arr = val.split(',');
+    var obj = new Person(arr[0], parseInt(arr[1]));
+    var msg = document.querySelector('#msg');
+    msg.innerHTML = obj.print();
 }
