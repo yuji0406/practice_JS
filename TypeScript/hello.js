@@ -3,6 +3,16 @@ var Person = /** @class */ (function () {
         this.name = n;
         this.age = y;
     }
+    Object.defineProperty(Person.prototype, "age", {
+        get: function () {
+            return this._age;
+        },
+        set: function (y) {
+            this._age = y < 0 ? 0 : y;
+        },
+        enumerable: false,
+        configurable: true
+    });
     Person.prototype.print = function () {
         var msg = '<p>My name is ' + this.name + '. I am ' + this.age + 'years old. </p>';
         return msg;

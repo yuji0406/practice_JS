@@ -1,14 +1,21 @@
 class Person {
-    name: string;
-    age: number;
+    public name: string;
+    private _age: number;
 
-    constructor(n :string, y: number) {
+    get age(): number {
+        return this._age;
+    }
+    set age(y: number) {
+        this._age = y < 0 ? 0 : y;
+    }
+
+    constructor(n: string, y: number) {
         this.name = n;
         this.age = y;
     }
 
     print(): string {
-        let msg: string = '<p>My name is ' + this.name  + '. I am ' + this.age + 'years old. </p>'
+        let msg: string = '<p>My name is ' + this.name + '. I am ' + this.age + 'years old. </p>';
         return msg;
     }
 }
