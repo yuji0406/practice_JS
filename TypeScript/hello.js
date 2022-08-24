@@ -31,7 +31,7 @@ var Student = /** @class */ (function (_super) {
         _this.grade = g;
         return _this;
     }
-    Student.prototype.printAll = function () {
+    Student.prototype.print = function () {
         var msg = '<p>My name is '
             + this.name
             + '. I am '
@@ -48,12 +48,12 @@ function doClick() {
     var val = document.querySelector('#text1').value;
     var msg = document.querySelector('#msg');
     var arr = val.split(',');
+    var obj = null;
     if (arr.length == 2) {
-        var obj = new Person(arr[0], parseInt(arr[1]));
-        msg.innerHTML = obj.print();
+        obj = new Person(arr[0], parseInt(arr[1]));
     }
     else if (arr.length == 3) {
-        var obj = new Student(arr[0], parseInt(arr[1]), parseInt(arr[2]));
-        msg.innerHTML = obj.printAll();
+        obj = new Student(arr[0], parseInt(arr[1]), parseInt(arr[2]));
     }
+    msg.innerHTML = obj.print();
 }
