@@ -19,9 +19,10 @@ var Person = /** @class */ (function () {
         this.age = y;
     }
     Person.prototype.print = function () {
-        var msg = '<p>My name is ' + this.name + '. I am ' + this.age + 'years old. </p>';
+        var msg = '<' + Person.tag + '>My name is ' + this.name + '. I am ' + this.age + 'years old. </' + Person.tag + '>';
         return msg;
     };
+    Person.tag = 'p';
     return Person;
 }());
 var Student = /** @class */ (function (_super) {
@@ -45,15 +46,10 @@ var Student = /** @class */ (function (_super) {
     return Student;
 }(Person));
 function doClick() {
-    var val = document.querySelector('#text1').value;
     var msg = document.querySelector('#msg');
+    var val = document.querySelector('#text1').value;
     var arr = val.split(',');
-    var obj = null;
-    if (arr.length == 2) {
-        obj = new Person(arr[0], parseInt(arr[1]));
-    }
-    else if (arr.length == 3) {
-        obj = new Student(arr[0], parseInt(arr[1]), parseInt(arr[2]));
-    }
+    var obj = new Person(arr[0], parseInt(arr[1]));
+    Person.tag = 'h1';
     msg.innerHTML = obj.print();
 }
