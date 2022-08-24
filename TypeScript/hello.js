@@ -1,15 +1,17 @@
-function total() {
-    var item = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        item[_i] = arguments[_i];
-    }
-    var re = 0;
-    for (var i = 0; i < item.length; i++) {
-        re += item[i];
-    }
-    return re;
+function print(n, f) {
+    var re = f(n);
+    return '<p>結果：' + re + '</p>';
 }
 function doClick() {
+    var val = document.querySelector('#text1').value * 1;
     var msg = document.querySelector('#msg');
-    msg.innerHTML = total(1, 2, 3, 4, 5);
+    var a = function (n) { return n * n; };
+    var b = function (n) {
+        var total = 0;
+        for (var i = 1; i <= n; i++) {
+            total += i;
+        }
+        return total;
+    };
+    msg.innerHTML = print(val, b);
 }

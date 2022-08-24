@@ -1,12 +1,20 @@
-function total(...item: number[]): number {
-    let re: number = 0;
-    for(let i: number = 0; i < item.length; i++) {
-        re += item[i];
-    }
-    return re;
+function print(n: number, f:(number) => number): string {
+    var re: number = f(n);
+    return '<p>結果：' + re + '</p>';
 }
 
 function doClick(): void {
+    let val: number = document.querySelector('#text1').value * 1;
     let msg: Element = document.querySelector('#msg');
-    msg.innerHTML = total(1, 2, 3, 4, 5);
+
+    let a:(number) => number = (n: number) => n * n;
+    let b:(number) => number = (n: number) => {
+        let total: number = 0;
+        for (let i:number = 1; i <= n; i++) {
+            total += i;
+        }
+        return total;
+    };
+
+    msg.innerHTML = print(val, b);
 }
