@@ -1,7 +1,13 @@
-class Person {
+interface Man {
+    name: string;
+    age: number;
+
+    print(): string;
+}
+
+class Person implements Man {
     public name: string;
     public age: number;
-    public static tag = 'p';
 
     constructor(n: string, y: number) {
         this.name = n;
@@ -9,16 +15,19 @@ class Person {
     }
 
     print(): string {
-        let msg: string = '<' + Person.tag + '>My name is ' + this.name + '. I am ' + this.age + 'years old. </' + Person.tag + '>';
+        let msg: string = '<p>My name is ' + this.name + '. I am ' + this.age + 'years old. </p>';
         return msg;
     }
 }
 
-class Student extends Person {
+class Student implements Man {
+    public name: string;
+    public age: number;
     public grade: number;
 
     constructor(n: string, y: number, g: number) {
-        super(n, y);
+        this.name = n;
+        this.age = y;
         this.grade = g;
     }
 
@@ -35,15 +44,17 @@ class Student extends Person {
         return msg;
     }
 }
+var data: Man[] = [];
+data.push(new Person('taro', 40));
+data.push(new Student('jiro', 20, 2));
+data.push(new Person('saburo', 10));
 
 
 function doClick(): void {
     let msg: Element = document.querySelector('#msg');
     let val: string = document.querySelector('#text1').value;
 
-    let arr: string[] = val.split(',');
-    
-    let obj: Person = new Person(arr[0], parseInt(arr[1]));
-    Person.tag = 'h1';
+    let obj: Man = data[val];
+
     msg.innerHTML = obj.print();
 }

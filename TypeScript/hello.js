@@ -1,36 +1,19 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var Person = /** @class */ (function () {
     function Person(n, y) {
         this.name = n;
         this.age = y;
     }
     Person.prototype.print = function () {
-        var msg = '<' + Person.tag + '>My name is ' + this.name + '. I am ' + this.age + 'years old. </' + Person.tag + '>';
+        var msg = '<p>My name is ' + this.name + '. I am ' + this.age + 'years old. </p>';
         return msg;
     };
-    Person.tag = 'p';
     return Person;
 }());
-var Student = /** @class */ (function (_super) {
-    __extends(Student, _super);
+var Student = /** @class */ (function () {
     function Student(n, y, g) {
-        var _this = _super.call(this, n, y) || this;
-        _this.grade = g;
-        return _this;
+        this.name = n;
+        this.age = y;
+        this.grade = g;
     }
     Student.prototype.print = function () {
         var msg = '<p>My name is '
@@ -44,12 +27,14 @@ var Student = /** @class */ (function (_super) {
         return msg;
     };
     return Student;
-}(Person));
+}());
+var data = [];
+data.push(new Person('taro', 40));
+data.push(new Student('jiro', 20, 2));
+data.push(new Person('saburo', 10));
 function doClick() {
     var msg = document.querySelector('#msg');
     var val = document.querySelector('#text1').value;
-    var arr = val.split(',');
-    var obj = new Person(arr[0], parseInt(arr[1]));
-    Person.tag = 'h1';
+    var obj = data[val];
     msg.innerHTML = obj.print();
 }
