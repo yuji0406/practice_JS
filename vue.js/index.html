@@ -10,10 +10,8 @@
 <body onload="initial();">
     <h1>Vue.js</h1>
     <div id="msg">
-        <!-- <p v-html="message"></p> -->
-        <p>{{ message.toString() }}</p>
-        <input v-model="text1">
-        <input type="button" value="click" v-on:click="doAction">
+        <p>{{ result }}</p>
+        <input v-model="number">
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="main.js"></script>
