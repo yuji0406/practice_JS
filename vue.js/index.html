@@ -10,8 +10,8 @@
 <body onload="initial();">
     <h1>Vue.js</h1>
     <div id="msg">
-        <p>{{ result }}</p>
-        <input v-model="number">
+        <p>税抜価格：<input type="text" v-model="woTax"></p>
+        <p>税込価格：<input type="text" v-model="wTax"></p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="main.js"></script>
