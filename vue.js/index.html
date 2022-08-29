@@ -10,12 +10,19 @@
 <body onload="initial();">
     <h1>Vue.js</h1>
     <div id="msg">
-        <p v-if="flg">メッセージの表示を操作します。</p>
-        <p v-else>[ 非表示です ]</p>
-        <div>
-            <input type="checkbox" id="ck" v-model="flg">
-            <label for="ck">表示</label>
-        </div>
+        <ol>
+            <li v-for="obj in data">
+                {{ obj }}
+            </li>
+        </ol>
+        <hr>
+        <select size="5" v-model="data" multiple>
+            <option>Windows</option>
+            <option>MacOs</option>
+            <option>Linux</option>
+            <option>Android</option>
+            <option>iOS</option>
+        </select>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="main.js"></script>
