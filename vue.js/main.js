@@ -3,16 +3,13 @@ function initial() {
     new Vue({
         el: '#msg',
         data: {
-            woTax: '0'
+            isA: true,
+            isB: false
         },
-        computed: {
-            wTax: {
-                get: function () {
-                    return parseInt(this.woTax * 1.08);
-                },
-                set: function (val) {
-                    this.woTax = Math.ceil(val / 1.08);
-                }
+        methods: {
+            change: function () {
+                this.isA = !this.isA;
+                this.isB = !this.isB;
             }
         }
     })

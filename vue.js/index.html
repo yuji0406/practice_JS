@@ -9,10 +9,9 @@
 </head>
 <body onload="initial();">
     <h1>Vue.js</h1>
-    <div id="msg">
-        <p>税抜価格：<input type="text" v-model="woTax"></p>
-        <p>税込価格：<input type="text" v-model="wTax"></p>
-    </div>
+        <p id="msg" v-bind:class="{a:isA, b:isB}" v-on:click="change();">
+            クラスを操作します。
+        </p>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="main.js"></script>
 </body>
