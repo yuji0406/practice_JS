@@ -7,20 +7,12 @@
     <title>Vue.js</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<template id="my-template">
-    <table>
-        <tr v-for="obj in items.split(',')">
-            <td style="color: red;">
-                {{ obj }}
-            </td>
-        </tr>
-    </table>
-</template>
-
 <body onload="initial();">
     <h1>Vue.js</h1>
     <div id="msg">
-        <my-component items="one,two,three"></my-component>
+        <div v-my-directive="message">ok.</div>
+        <input type="text" v-model="val">
+        <input type="button" v-on:click="myfunc();" value="click">
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="main.js"></script>
