@@ -9,9 +9,26 @@
 </head>
 <body onload="initial();">
     <h1>Vue.js</h1>
-        <p id="msg" v-bind:class="{a:isA, b:isB}" v-on:click="change();">
-            クラスを操作します。
+    <div id="msg">
+        <p v-bind:style="{ color: selF, background: selB}" v-on:click="change();">スタイルを操作</p>
+
+        <p>
+            <select v-model="selF">
+                <option>white</option>
+                <option>black</option>
+                <option>red</option>
+                <option>green</option>
+                <option>blue</option>
+            </select>
+            <select v-model="selB">
+                <option>white</option>
+                <option>black</option>
+                <option>red</option>
+                <option>green</option>
+                <option>blue</option>
+            </select>
         </p>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="main.js"></script>
 </body>
