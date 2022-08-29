@@ -3,12 +3,10 @@ function initial() {
     new Vue({
         el: '#msg',
         data: {
-            selF: '',
-            selB: '',
+            flg: false
         },
         created: function () {
-            this.selF = 'red';
-            this.selB = 'white';
+            this.flg = true;
         },
     });
 }

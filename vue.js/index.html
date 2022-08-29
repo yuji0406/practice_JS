@@ -10,24 +10,12 @@
 <body onload="initial();">
     <h1>Vue.js</h1>
     <div id="msg">
-        <p v-bind:style="{ color: selF, background: selB}" v-on:click="change();">スタイルを操作</p>
-
-        <p>
-            <select v-model="selF">
-                <option>white</option>
-                <option>black</option>
-                <option>red</option>
-                <option>green</option>
-                <option>blue</option>
-            </select>
-            <select v-model="selB">
-                <option>white</option>
-                <option>black</option>
-                <option>red</option>
-                <option>green</option>
-                <option>blue</option>
-            </select>
-        </p>
+        <p v-if="flg">メッセージの表示を操作します。</p>
+        <p v-else>[ 非表示です ]</p>
+        <div>
+            <input type="checkbox" id="ck" v-model="flg">
+            <label for="ck">表示</label>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="main.js"></script>
