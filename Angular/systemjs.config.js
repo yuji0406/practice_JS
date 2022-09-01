@@ -33,7 +33,7 @@
 
     function packUmd(pkgName) {
         packages['@angular/' + pkgName] = {
-            main: '/bundles' + pkgName + '.umd.js',
+            main: 'bundles/' + pkgName + '.umd.js',
             defaultExtention: 'js'
         }
     }
