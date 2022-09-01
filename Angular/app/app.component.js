@@ -10,14 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 let AppComponent = class AppComponent {
+    constructor() {
+        this.title = "Hello!";
+        this.message = "くそが！！";
+    }
 };
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: '<h1>Angularサンプル</h1>',
+        template: `<h1>{{ title }}</h1><p>{{ message }}</p>`
     }), 
     __metadata('design:paramtypes', [])
 ], AppComponent);
 exports.AppComponent = AppComponent;
-;
 //# sourceMappingURL=app.component.js.map
