@@ -9,18 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-let AppComponent = class AppComponent {
+class MyFormModel {
+    constructor(msg) {
+        this.msg = msg;
+    }
+}
+exports.MyFormModel = MyFormModel;
+let FormComponent = class FormComponent {
     constructor() {
-        this.title = "Hello!";
-        this.message = "くそが！！";
+        this.model = new MyFormModel('message....');
+    }
+    onSubmit() {
+        this.message = 'you typed: ' + this.model.msg;
     }
 };
-AppComponent = __decorate([
+FormComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: `<h1>{{ title }}</h1><p>{{ message }}</p>`
+        selector: 'form-app',
+        template: `
+        <h1>Angular web</h1>
+        <p>{{ message }}</p>
+        <form>
+            <input type="text" id="msg" name="msg" [(ngModel)]="model.msg">
+            <input type="button" value="click" (click)="onSubmit();">
+        </form>
+    `
     }), 
     __metadata('design:paramtypes', [])
-], AppComponent);
-exports.AppComponent = AppComponent;
+], FormComponent);
+exports.FormComponent = FormComponent;
 //# sourceMappingURL=app.component.js.map
